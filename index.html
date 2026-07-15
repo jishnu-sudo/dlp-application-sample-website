@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Application form for Goalkeep's Data Literacy Program">
+  <title>Data Literacy Program Application Form | Goalkeep</title>
+
+  <style>
+    /* Colour settings */
+    :root {
+      --primary: #173653;
+      --primary-dark: #102a42;
+      --accent: #dceef8;
+      --accent-strong: #8fc8e8;
+      --background: #f8f6f1;
+      --surface: #ffffff;
+      --surface-soft: #f5f9fc;
+      --text: #25313c;
+      --muted: #63717d;
+      --border: #d9e2e8;
+      --error: #b42318;
+      --success: #176b4d;
+      --shadow: 0 18px 45px rgba(23, 54, 83, 0.10);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background: var(--background);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+    }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    button:disabled { cursor: not-allowed; }
+    .shell { width: min(100% - 32px, 980px); margin: 0 auto; padding: 30px 0 48px; }
+
+    /* Header and branding */
+    .header, .card {
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid rgba(23, 54, 83, 0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .brand {
+      display: flex;
+      justify-content: center;
+      padding: 18px 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand img { display: block; width: min(100%, 520px); height: auto; }
+    .hero {
+      padding: 34px 40px 38px;
+      background: linear-gradient(135deg, rgba(220,238,248,.75), rgba(255,255,255,.95));
+    }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--primary);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      color: var(--primary);
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1.08;
+      letter-spacing: -.04em;
+    }
+    .subtitle { margin: 14px 0 0; color: var(--muted); font-size: 1.08rem; }
+
+    .card { margin-top: 24px; }
+    .progress {
+      padding: 26px 40px 22px;
+      background: var(--surface-soft);
+      border-bottom: 1px solid var(--border);
+    }
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .progress-top strong { color: var(--primary); }
+    .progress-top span { color: var(--muted); font-size: .92rem; font-weight: 700; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .step { text-align: center; color: var(--muted); font-size: .82rem; font-weight: 700; }
+    .dot {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin: 0 auto 7px;
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      background: var(--surface);
+      font-weight: 800;
+    }
+    .step.current, .step.done { color: var(--primary); }
+    .step.current .dot, .step.done .dot {
+      color: #fff;
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+    .step.current .dot { box-shadow: 0 0 0 5px rgba(143,200,232,.32); }
+
+    form { padding: 36px 40px 32px; }
+    /* Form sections */
+    .form-section[hidden] { display: none; }
+    .section-head { margin-bottom: 28px; }
+    .section-head p {
+      margin: 0 0 5px;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .section-head h2 {
+      margin: 0;
+      color: var(--primary);
+      font-size: clamp(1.55rem, 4vw, 2rem);
+      letter-spacing: -.025em;
+    }
+    .required-note {
+      margin: 8px 0 0 !important;
+      font-size: .9rem !important;
+      font-weight: 400 !important;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+    }
+    .required { color: var(--error); font-weight: 900; }
+    .fields { display: grid; gap: 25px; }
+    .field label, legend {
+      display: block;
+      width: 100%;
+      margin: 0 0 8px;
+      padding: 0;
+      color: var(--text);
+      font-weight: 750;
+    }
+    fieldset { margin: 0; padding: 0; border: 0; }
+    input[type="text"], input[type="url"], input[type="email"], select, textarea {
+      width: 100%;
+      color: var(--text);
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+    }
+    input[type="text"], input[type="url"], input[type="email"], select {
+      min-height: 50px;
+      padding: 12px 14px;
+    }
+    textarea { min-height: 130px; padding: 13px 14px; resize: vertical; }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(143,200,232,.28);
+    }
+    .help { margin: 7px 0 0; color: var(--muted); font-size: .87rem; }
+    .error { display: none; margin: 7px 0 0; color: var(--error); font-size: .87rem; font-weight: 700; }
+    .field.invalid .error { display: block; }
+    .field.invalid input, .field.invalid select, .field.invalid textarea,
+    .field.invalid .option { border-color: var(--error); }
+
+    .options { display: grid; gap: 10px; }
+    .options.two { grid-template-columns: repeat(2, 1fr); }
+    .options.five { grid-template-columns: repeat(5, 1fr); }
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 11px 13px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      cursor: pointer;
+    }
+    .option:hover { border-color: var(--accent-strong); background: var(--surface-soft); }
+    .option input { width: 18px; height: 18px; margin: 0; accent-color: var(--primary); }
+    .option span { font-size: .92rem; font-weight: 650; }
+
+    /* Navigation */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 34px;
+      padding-top: 23px;
+      border-top: 1px solid var(--border);
+    }
+    .btn {
+      min-height: 48px;
+      padding: 11px 22px;
+      border: 1.5px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+    }
+    .btn:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 3px; }
+    .secondary { color: var(--primary); background: #fff; border-color: var(--border); }
+    .secondary:hover:not(:disabled) { border-color: var(--primary); background: var(--surface-soft); }
+    .secondary:disabled { color: #98a3ad; background: #f4f5f6; }
+    .primary { color: #fff; background: var(--primary); box-shadow: 0 8px 20px rgba(23,54,83,.18); }
+    .primary:hover { background: var(--primary-dark); }
+    .form-alert {
+      display: none;
+      margin: 18px 0 0;
+      padding: 12px 14px;
+      color: var(--error);
+      background: #fef3f2;
+      border: 1px solid #f4c7c3;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+    .form-alert.show { display: block; }
+
+    /* Confirmation screen */
+    .confirmation { display: none; padding: 54px 40px 58px; text-align: center; }
+    .confirmation.show { display: block; }
+    .check {
+      display: grid;
+      place-items: center;
+      width: 66px;
+      height: 66px;
+      margin: 0 auto 22px;
+      color: #fff;
+      background: var(--success);
+      border-radius: 50%;
+      font-size: 2rem;
+      box-shadow: 0 0 0 8px #edf8f3;
+    }
+    .confirmation h2 { margin: 0; color: var(--primary); font-size: 2rem; }
+    .confirmation p { margin: 12px auto 0; max-width: 620px; color: var(--muted); font-size: 1.04rem; }
+    .confirmation p + p { margin-top: 6px; }
+
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 20px, 980px); padding-top: 12px; }
+      .hero, .progress, form, .confirmation { padding-left: 24px; padding-right: 24px; }
+      .options.five { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .shell { width: min(100% - 14px, 980px); }
+      .hero, .progress, form, .confirmation { padding-left: 18px; padding-right: 18px; }
+      .progress-top { flex-direction: column; gap: 3px; }
+      .step { font-size: .69rem; }
+      .options.two, .options.five { grid-template-columns: 1fr; }
+      .nav { flex-direction: column-reverse; }
+      .btn { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="shell">
+    <!-- Header and branding -->
+    <header class="header">
+      <div class="brand">
+        <img id="goalkeepBanner" alt="Goalkeep" width="600" height="162">
+      </div>
+      <div class="hero">
+        <p class="eyebrow">Goalkeep</p>
+        <h1>Data Literacy Program Application Form</h1>
+        <p class="subtitle">Apply to join Goalkeep's Data Literacy Program</p>
+      </div>
+    </header>
+
+    <section class="card" aria-label="Data Literacy Program application">
+      <div id="formExperience">
+        <div class="progress">
+          <div class="progress-top" aria-live="polite">
+            <strong id="currentName">Organisation Details</strong>
+            <span id="currentCount">Section 1 of 3</span>
+          </div>
+          <div class="steps" aria-label="Application progress">
+            <div class="step current" data-step="0" aria-current="step"><span class="dot">1</span>Organisation Details</div>
+            <div class="step" data-step="1"><span class="dot">2</span>Data Use and Challenges</div>
+            <div class="step" data-step="2"><span class="dot">3</span>Applicant Details</div>
+          </div>
+        </div>
+
+        <form id="applicationForm" novalidate>
+          <!-- Form sections -->
+          <section class="form-section" data-section="0" aria-labelledby="section1Title">
+            <div class="section-head">
+              <p>Section 1</p>
+              <h2 id="section1Title">Organisation Details</h2>
+              <p class="required-note">Fields marked <span class="required">*</span> are required.</p>
+            </div>
+            <div class="fields">
+              <div class="field">
+                <label for="organisationName">Name of your organisation <span class="required">*</span></label>
+                <input id="organisationName" name="organisationName" type="text" autocomplete="organization" required>
+                <p class="help">Enter the registered or commonly used organisation name.</p>
+                <p class="error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="organisationWebsite">Link to your organisation's website <span class="required">*</span></label>
+                <input id="organisationWebsite" name="organisationWebsite" type="url" inputmode="url" autocomplete="url" placeholder="https://www.example.org" required>
+                <p class="help">Enter the complete website link.</p>
+                <p class="error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="primarySector">What is your organisation's primary sector? <span class="required">*</span></label>
+                <select id="primarySector" name="primarySector" required>
+                  <option value="">Select an option</option>
+                  <option>Education</option>
+                  <option>Health</option>
+                  <option>Livelihoods and Employability</option>
+                  <option>Gender Equality</option>
+                  <option>Environment and Climate Change</option>
+                  <option>Governance</option>
+                  <option>Other</option>
+                </select>
+                <p class="help">Select the closest matching sector.</p>
+                <p class="error" aria-live="polite"></p>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section" data-section="1" aria-labelledby="section2Title" hidden>
+            <div class="section-head">
+              <p>Section 2</p>
+              <h2 id="section2Title">Data Use and Challenges</h2>
+              <p class="required-note">Fields marked <span class="required">*</span> are required.</p>
+            </div>
+            <div class="fields">
+              <div class="field" data-radio="dashboardUse">
+                <fieldset>
+                  <legend>Does your organisation currently use dashboards or data reports? <span class="required">*</span></legend>
+                  <div class="options two">
+                    <label class="option"><input type="radio" name="dashboardUse" value="Yes" required><span>Yes</span></label>
+                    <label class="option"><input type="radio" name="dashboardUse" value="No" required><span>No</span></label>
+                  </div>
+                </fieldset>
+                <p class="error" aria-live="polite"></p>
+              </div>
+
+              <div class="field" data-radio="dataFrequency">
+                <fieldset>
+                  <legend>How regularly does your organisation use data to make decisions? <span class="required">*</span></legend>
+                  <div class="options five">
+                    <label class="option"><input type="radio" name="dataFrequency" value="Rarely" required><span>Rarely</span></label>
+                    <label class="option"><input type="radio" name="dataFrequency" value="A few times a year" required><span>A few times a year</span></label>
+                    <label class="option"><input type="radio" name="dataFrequency" value="Monthly" required><span>Monthly</span></label>
+                    <label class="option"><input type="radio" name="dataFrequency" value="Weekly" required><span>Weekly</span></label>
+                    <label class="option"><input type="radio" name="dataFrequency" value="Daily" required><span>Daily</span></label>
+                  </div>
+                </fieldset>
+                <p class="error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="dataChallenge">What is the biggest challenge your team faces while using data? <span class="required">*</span></label>
+                <textarea id="dataChallenge" name="dataChallenge" required></textarea>
+                <p class="help">Share one or two key challenges.</p>
+                <p class="error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="learningPriorities">What are the top two things your organisation wants to learn from this program? <span class="required">*</span></label>
+                <textarea id="learningPriorities" name="learningPriorities" required></textarea>
+                <p class="help">Mention up to two learning priorities.</p>
+                <p class="error" aria-live="polite"></p>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section" data-section="2" aria-labelledby="section3Title" hidden>
+            <div class="section-head">
+              <p>Section 3</p>
+              <h2 id="section3Title">Applicant Details</h2>
+              <p class="required-note">Fields marked <span class="required">*</span> are required.</p>
+            </div>
+            <div class="fields">
+              <div class="field">
+                <label for="applicantName">Applicant name <span class="required">*</span></label>
+                <input id="applicantName" name="applicantName" type="text" autocomplete="name" required>
+                <p class="error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="emailAddress">Email address <span class="required">*</span></label>
+                <input id="emailAddress" name="emailAddress" type="email" inputmode="email" autocomplete="email" required>
+                <p class="help">Enter an active work email address.</p>
+                <p class="error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="roleDesignation">Role or designation <span class="required">*</span></label>
+                <input id="roleDesignation" name="roleDesignation" type="text" autocomplete="organization-title" required>
+                <p class="error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="teamFunction">Which team or function do you work in? <span class="required">*</span></label>
+                <select id="teamFunction" name="teamFunction" required>
+                  <option value="">Select an option</option>
+                  <option>Program Design</option>
+                  <option>Program Implementation</option>
+                  <option>Monitoring and Evaluation</option>
+                  <option>Data and Technology</option>
+                  <option>Leadership</option>
+                  <option>Other</option>
+                </select>
+                <p class="error" aria-live="polite"></p>
+              </div>
+            </div>
+          </section>
+
+          <p class="form-alert" id="formAlert" role="alert">Please complete all required fields before submitting the application.</p>
+
+          <!-- Navigation -->
+          <div class="nav">
+            <button class="btn secondary" id="backButton" type="button" disabled>Back</button>
+            <button class="btn primary" id="nextButton" type="button">Next</button>
+            <button class="btn primary" id="submitButton" type="submit" hidden>Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Confirmation screen -->
+      <div class="confirmation" id="confirmation" role="status" aria-live="polite" tabindex="-1">
+        <div class="check" aria-hidden="true">✓</div>
+        <h2>Application completed for demonstration purposes.</h2>
+        <p>This is a frontend prototype. Your responses have not been stored.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const bannerDataUrl = [
+        "data:image/webp;base64,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"
+      ].join("");
+      document.getElementById("goalkeepBanner").src = bannerDataUrl;
+
+      const form = document.getElementById("applicationForm");
+      const sections = [...document.querySelectorAll(".form-section")];
+      const steps = [...document.querySelectorAll("[data-step]")];
+      const names = ["Organisation Details", "Data Use and Challenges", "Applicant Details"];
+      const back = document.getElementById("backButton");
+      const next = document.getElementById("nextButton");
+      const submit = document.getElementById("submitButton");
+      const alertBox = document.getElementById("formAlert");
+      let current = 0;
+
+      const messageFor = (control) => {
+        if (control.validity.valueMissing) return "This question is required.";
+        if (control.type === "email" && control.validity.typeMismatch) return "Enter a valid email address.";
+        if (control.type === "url" && control.validity.typeMismatch) return "Enter a complete website link, including http:// or https://.";
+        return "Check this response and try again.";
+      };
+
+      /* Validation */
+      const setError = (field, message = "") => {
+        field.classList.toggle("invalid", Boolean(message));
+        field.querySelector(".error").textContent = message;
+      };
+
+      const validateSection = (index, focusFirst = true) => {
+        const section = sections[index];
+        const fields = [...section.querySelectorAll(".field")];
+        let valid = true;
+        let firstInvalid = null;
+
+        fields.forEach((field) => {
+          const radioName = field.dataset.radio;
+          if (radioName) {
+            const checked = field.querySelector(`input[name="${radioName}"]:checked`);
+            if (!checked) {
+              valid = false;
+              setError(field, "This question is required.");
+              firstInvalid ||= field.querySelector("input");
+            } else {
+              setError(field);
+            }
+            return;
+          }
+
+          const control = field.querySelector("input, select, textarea");
+          if (!control.checkValidity()) {
+            valid = false;
+            setError(field, messageFor(control));
+            control.setAttribute("aria-invalid", "true");
+            firstInvalid ||= control;
+          } else {
+            setError(field);
+            control.removeAttribute("aria-invalid");
+          }
+        });
+
+        if (!valid && firstInvalid && focusFirst) {
+          firstInvalid.focus();
+          firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        return valid;
+      };
+
+      const showSection = (index, focusHeading = true) => {
+        current = index;
+        sections.forEach((section, i) => section.hidden = i !== current);
+        steps.forEach((step, i) => {
+          step.classList.toggle("current", i === current);
+          step.classList.toggle("done", i < current);
+          i === current ? step.setAttribute("aria-current", "step") : step.removeAttribute("aria-current");
+        });
+        document.getElementById("currentName").textContent = names[current];
+        document.getElementById("currentCount").textContent = `Section ${current + 1} of ${sections.length}`;
+        back.disabled = current === 0;
+        next.hidden = current === sections.length - 1;
+        submit.hidden = current !== sections.length - 1;
+        alertBox.classList.remove("show");
+
+        if (focusHeading) {
+          const heading = sections[current].querySelector("h2");
+          heading.tabIndex = -1;
+          heading.focus({ preventScroll: true });
+          heading.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      };
+
+      next.addEventListener("click", () => {
+        if (validateSection(current)) showSection(current + 1);
+      });
+
+      back.addEventListener("click", () => {
+        if (current > 0) showSection(current - 1);
+      });
+
+      form.addEventListener("input", (event) => {
+        const field = event.target.closest(".field");
+        if (!field) return;
+
+        if (field.dataset.radio) {
+          if (field.querySelector(`input[name="${field.dataset.radio}"]:checked`)) setError(field);
+        } else if (event.target.checkValidity()) {
+          setError(field);
+          event.target.removeAttribute("aria-invalid");
+        }
+        alertBox.classList.remove("show");
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let firstInvalid = -1;
+
+        sections.forEach((_, index) => {
+          if (!validateSection(index, false) && firstInvalid === -1) firstInvalid = index;
+        });
+
+        if (firstInvalid !== -1) {
+          showSection(firstInvalid, false);
+          alertBox.classList.add("show");
+          validateSection(firstInvalid);
+          return;
+        }
+
+        /* No data is sent or stored. */
+        document.getElementById("formExperience").hidden = true;
+        const confirmation = document.getElementById("confirmation");
+        confirmation.classList.add("show");
+        confirmation.focus();
+        confirmation.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+
+      showSection(0, false);
+    })();
+  </script>
+</body>
+</html>
