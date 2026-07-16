@@ -26,7 +26,9 @@
     }
 
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -36,110 +38,186 @@
         Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.5;
     }
-    button, input, select, textarea { font: inherit; }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
     button { cursor: pointer; }
+
     button:disabled { cursor: not-allowed; }
-    .shell { width: min(100% - 32px, 980px); margin: 0 auto; padding: 30px 0 48px; }
+
+    .shell {
+      width: min(100% - 32px, 980px);
+      margin: 0 auto;
+      padding: 30px 0 48px;
+    }
 
     /* Header and branding */
-    .header, .card {
+    .header,
+    .card {
       overflow: hidden;
       background: var(--surface);
       border: 1px solid rgba(23, 54, 83, 0.08);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
+
     .brand {
       display: flex;
       justify-content: center;
       padding: 18px 28px;
       border-bottom: 1px solid var(--border);
     }
-    .brand img { display: block; width: min(100%, 520px); height: auto; }
+
+    .brand img {
+      display: block;
+      width: min(100%, 520px);
+      height: auto;
+    }
+
     .hero {
       padding: 34px 40px 38px;
-      background: linear-gradient(135deg, rgba(220,238,248,.75), rgba(255,255,255,.95));
+      background: linear-gradient(
+        135deg,
+        rgba(220, 238, 248, 0.75),
+        rgba(255, 255, 255, 0.95)
+      );
     }
+
     .eyebrow {
       margin: 0 0 8px;
       color: var(--primary);
-      font-size: .78rem;
+      font-size: 0.78rem;
       font-weight: 800;
-      letter-spacing: .12em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
+
     h1 {
       margin: 0;
       color: var(--primary);
       font-size: clamp(2rem, 5vw, 3.25rem);
       line-height: 1.08;
-      letter-spacing: -.04em;
+      letter-spacing: -0.04em;
     }
-    .subtitle { margin: 14px 0 0; color: var(--muted); font-size: 1.08rem; }
+
+    .subtitle {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
 
     .card { margin-top: 24px; }
+
     .progress {
       padding: 26px 40px 22px;
       background: var(--surface-soft);
       border-bottom: 1px solid var(--border);
     }
+
     .progress-top {
       display: flex;
       justify-content: space-between;
       gap: 16px;
       margin-bottom: 18px;
     }
+
     .progress-top strong { color: var(--primary); }
-    .progress-top span { color: var(--muted); font-size: .92rem; font-weight: 700; }
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .step { text-align: center; color: var(--muted); font-size: .82rem; font-weight: 700; }
+
+    .progress-top span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .step {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
     .dot {
       display: grid;
       place-items: center;
       width: 34px;
       height: 34px;
       margin: 0 auto 7px;
+      background: var(--surface);
       border: 2px solid var(--border);
       border-radius: 50%;
-      background: var(--surface);
       font-weight: 800;
     }
-    .step.current, .step.done { color: var(--primary); }
-    .step.current .dot, .step.done .dot {
-      color: #fff;
+
+    .step.current,
+    .step.done {
+      color: var(--primary);
+    }
+
+    .step.current .dot,
+    .step.done .dot {
+      color: #ffffff;
       background: var(--primary);
       border-color: var(--primary);
     }
-    .step.current .dot { box-shadow: 0 0 0 5px rgba(143,200,232,.32); }
+
+    .step.current .dot {
+      box-shadow: 0 0 0 5px rgba(143, 200, 232, 0.32);
+    }
 
     form { padding: 36px 40px 32px; }
+
     /* Form sections */
     .form-section[hidden] { display: none; }
+
     .section-head { margin-bottom: 28px; }
+
     .section-head p {
       margin: 0 0 5px;
       color: var(--muted);
-      font-size: .82rem;
+      font-size: 0.82rem;
       font-weight: 800;
-      letter-spacing: .08em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
+
     .section-head h2 {
       margin: 0;
       color: var(--primary);
       font-size: clamp(1.55rem, 4vw, 2rem);
-      letter-spacing: -.025em;
+      letter-spacing: -0.025em;
     }
+
     .required-note {
       margin: 8px 0 0 !important;
-      font-size: .9rem !important;
+      font-size: 0.9rem !important;
       font-weight: 400 !important;
       letter-spacing: 0 !important;
       text-transform: none !important;
     }
-    .required { color: var(--error); font-weight: 900; }
-    .fields { display: grid; gap: 25px; }
-    .field label, legend {
+
+    .required {
+      color: var(--error);
+      font-weight: 900;
+    }
+
+    .fields {
+      display: grid;
+      gap: 25px;
+    }
+
+    .field label,
+    legend {
       display: block;
       width: 100%;
       margin: 0 0 8px;
@@ -147,47 +225,111 @@
       color: var(--text);
       font-weight: 750;
     }
-    fieldset { margin: 0; padding: 0; border: 0; }
-    input[type="text"], input[type="url"], input[type="email"], select, textarea {
+
+    fieldset {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    input[type="text"],
+    input[type="url"],
+    input[type="email"],
+    select,
+    textarea {
       width: 100%;
       color: var(--text);
-      background: #fff;
+      background: #ffffff;
       border: 1.5px solid var(--border);
       border-radius: 10px;
       outline: none;
     }
-    input[type="text"], input[type="url"], input[type="email"], select {
+
+    input[type="text"],
+    input[type="url"],
+    input[type="email"],
+    select {
       min-height: 50px;
       padding: 12px 14px;
     }
-    textarea { min-height: 130px; padding: 13px 14px; resize: vertical; }
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(143,200,232,.28);
-    }
-    .help { margin: 7px 0 0; color: var(--muted); font-size: .87rem; }
-    .error { display: none; margin: 7px 0 0; color: var(--error); font-size: .87rem; font-weight: 700; }
-    .field.invalid .error { display: block; }
-    .field.invalid input, .field.invalid select, .field.invalid textarea,
-    .field.invalid .option { border-color: var(--error); }
 
-    .options { display: grid; gap: 10px; }
-    .options.two { grid-template-columns: repeat(2, 1fr); }
-    .options.five { grid-template-columns: repeat(5, 1fr); }
+    textarea {
+      min-height: 130px;
+      padding: 13px 14px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(143, 200, 232, 0.28);
+    }
+
+    .help {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 0.87rem;
+    }
+
+    .error {
+      display: none;
+      margin: 7px 0 0;
+      color: var(--error);
+      font-size: 0.87rem;
+      font-weight: 700;
+    }
+
+    .field.invalid .error { display: block; }
+
+    .field.invalid input,
+    .field.invalid select,
+    .field.invalid textarea,
+    .field.invalid .option {
+      border-color: var(--error);
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .options.two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .options.five {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
     .option {
       display: flex;
       align-items: center;
       gap: 10px;
       min-height: 50px;
       padding: 11px 13px;
+      background: #ffffff;
       border: 1.5px solid var(--border);
       border-radius: 10px;
-      background: #fff;
       cursor: pointer;
     }
-    .option:hover { border-color: var(--accent-strong); background: var(--surface-soft); }
-    .option input { width: 18px; height: 18px; margin: 0; accent-color: var(--primary); }
-    .option span { font-size: .92rem; font-weight: 650; }
+
+    .option:hover {
+      background: var(--surface-soft);
+      border-color: var(--accent-strong);
+    }
+
+    .option input {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      accent-color: var(--primary);
+    }
+
+    .option span {
+      font-size: 0.92rem;
+      font-weight: 650;
+    }
 
     /* Navigation */
     .nav {
@@ -198,6 +340,7 @@
       padding-top: 23px;
       border-top: 1px solid var(--border);
     }
+
     .btn {
       min-height: 48px;
       padding: 11px 22px;
@@ -205,12 +348,42 @@
       border-radius: 999px;
       font-weight: 800;
     }
-    .btn:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 3px; }
-    .secondary { color: var(--primary); background: #fff; border-color: var(--border); }
-    .secondary:hover:not(:disabled) { border-color: var(--primary); background: var(--surface-soft); }
-    .secondary:disabled { color: #98a3ad; background: #f4f5f6; }
-    .primary { color: #fff; background: var(--primary); box-shadow: 0 8px 20px rgba(23,54,83,.18); }
-    .primary:hover { background: var(--primary-dark); }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--accent-strong);
+      outline-offset: 3px;
+    }
+
+    .secondary {
+      color: var(--primary);
+      background: #ffffff;
+      border-color: var(--border);
+    }
+
+    .secondary:hover:not(:disabled) {
+      background: var(--surface-soft);
+      border-color: var(--primary);
+    }
+
+    .secondary:disabled {
+      color: #98a3ad;
+      background: #f4f5f6;
+    }
+
+    .primary {
+      color: #ffffff;
+      background: var(--primary);
+      box-shadow: 0 8px 20px rgba(23, 54, 83, 0.18);
+    }
+
+    .primary:hover:not(:disabled) {
+      background: var(--primary-dark);
+    }
+
+    .primary:disabled {
+      opacity: 0.72;
+    }
+
     .form-alert {
       display: none;
       margin: 18px 0 0;
@@ -221,43 +394,128 @@
       border-radius: 10px;
       font-weight: 700;
     }
+
     .form-alert.show { display: block; }
 
+    .saving-status {
+      display: none;
+      margin: 18px 0 0;
+      padding: 12px 14px;
+      color: var(--primary);
+      background: var(--surface-soft);
+      border: 1px solid var(--accent-strong);
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    .saving-status.show { display: block; }
+
     /* Confirmation screen */
-    .confirmation { display: none; padding: 54px 40px 58px; text-align: center; }
+    .confirmation {
+      display: none;
+      padding: 54px 40px 58px;
+      text-align: center;
+    }
+
     .confirmation.show { display: block; }
+
     .check {
       display: grid;
       place-items: center;
       width: 66px;
       height: 66px;
       margin: 0 auto 22px;
-      color: #fff;
+      color: #ffffff;
       background: var(--success);
       border-radius: 50%;
       font-size: 2rem;
       box-shadow: 0 0 0 8px #edf8f3;
     }
-    .confirmation h2 { margin: 0; color: var(--primary); font-size: 2rem; }
-    .confirmation p { margin: 12px auto 0; max-width: 620px; color: var(--muted); font-size: 1.04rem; }
+
+    .confirmation h2 {
+      margin: 0;
+      color: var(--primary);
+      font-size: 2rem;
+    }
+
+    .confirmation p {
+      max-width: 620px;
+      margin: 12px auto 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
     .confirmation p + p { margin-top: 6px; }
 
-    @media (max-width: 760px) {
-      .shell { width: min(100% - 20px, 980px); padding-top: 12px; }
-      .hero, .progress, form, .confirmation { padding-left: 24px; padding-right: 24px; }
-      .options.five { grid-template-columns: repeat(2, 1fr); }
+    .confirmation .submission-id {
+      margin-top: 18px;
+      padding: 11px 14px;
+      color: var(--primary);
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow-wrap: anywhere;
     }
+
+    .confirmation .btn { margin-top: 26px; }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(100% - 20px, 980px);
+        padding-top: 12px;
+      }
+
+      .hero,
+      .progress,
+      form,
+      .confirmation {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .options.five {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 520px) {
-      .shell { width: min(100% - 14px, 980px); }
-      .hero, .progress, form, .confirmation { padding-left: 18px; padding-right: 18px; }
-      .progress-top { flex-direction: column; gap: 3px; }
-      .step { font-size: .69rem; }
-      .options.two, .options.five { grid-template-columns: 1fr; }
-      .nav { flex-direction: column-reverse; }
+      .shell {
+        width: min(100% - 14px, 980px);
+      }
+
+      .hero,
+      .progress,
+      form,
+      .confirmation {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .progress-top {
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .step { font-size: 0.69rem; }
+
+      .options.two,
+      .options.five {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column-reverse;
+      }
+
       .btn { width: 100%; }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; }
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
@@ -267,8 +525,14 @@
     <!-- Header and branding -->
     <header class="header">
       <div class="brand">
-        <img id="goalkeepBanner" alt="Goalkeep" width="600" height="162">
+        <img
+          id="goalkeepBanner"
+          alt="Goalkeep"
+          width="600"
+          height="162"
+        >
       </div>
+
       <div class="hero">
         <p class="eyebrow">Goalkeep</p>
         <h1>Data Literacy Program Application Form</h1>
@@ -278,43 +542,93 @@
 
     <section class="card" aria-label="Data Literacy Program application">
       <div id="formExperience">
-        <div class="progress">
+        <div class="progress" id="progressIndicator">
           <div class="progress-top" aria-live="polite">
             <strong id="currentName">Organisation Details</strong>
             <span id="currentCount">Section 1 of 3</span>
           </div>
+
           <div class="steps" aria-label="Application progress">
-            <div class="step current" data-step="0" aria-current="step"><span class="dot">1</span>Organisation Details</div>
-            <div class="step" data-step="1"><span class="dot">2</span>Data Use and Challenges</div>
-            <div class="step" data-step="2"><span class="dot">3</span>Applicant Details</div>
+            <div class="step current" data-step="0" aria-current="step">
+              <span class="dot">1</span>
+              Organisation Details
+            </div>
+
+            <div class="step" data-step="1">
+              <span class="dot">2</span>
+              Data Use and Challenges
+            </div>
+
+            <div class="step" data-step="2">
+              <span class="dot">3</span>
+              Applicant Details
+            </div>
           </div>
         </div>
 
         <form id="applicationForm" novalidate>
           <!-- Form sections -->
-          <section class="form-section" data-section="0" aria-labelledby="section1Title">
+          <section
+            class="form-section"
+            data-section="0"
+            aria-labelledby="section1Title"
+          >
             <div class="section-head">
               <p>Section 1</p>
               <h2 id="section1Title">Organisation Details</h2>
-              <p class="required-note">Fields marked <span class="required">*</span> are required.</p>
+              <p class="required-note">
+                Fields marked <span class="required">*</span> are required.
+              </p>
             </div>
+
             <div class="fields">
               <div class="field">
-                <label for="organisationName">Name of your organisation <span class="required">*</span></label>
-                <input id="organisationName" name="organisationName" type="text" autocomplete="organization" required>
-                <p class="help">Enter the registered or commonly used organisation name.</p>
+                <label for="organisationName">
+                  Name of your organisation
+                  <span class="required">*</span>
+                </label>
+
+                <input
+                  id="organisationName"
+                  name="organisationName"
+                  type="text"
+                  autocomplete="organization"
+                  required
+                >
+
+                <p class="help">
+                  Enter the registered or commonly used organisation name.
+                </p>
+
                 <p class="error" aria-live="polite"></p>
               </div>
 
               <div class="field">
-                <label for="organisationWebsite">Link to your organisation's website <span class="required">*</span></label>
-                <input id="organisationWebsite" name="organisationWebsite" type="url" inputmode="url" autocomplete="url" placeholder="https://www.example.org" required>
+                <label for="organisationWebsite">
+                  Link to your organisation's website
+                  <span class="required">*</span>
+                </label>
+
+                <input
+                  id="organisationWebsite"
+                  name="organisationWebsite"
+                  type="url"
+                  inputmode="url"
+                  autocomplete="url"
+                  placeholder="https://www.example.org"
+                  required
+                >
+
                 <p class="help">Enter the complete website link.</p>
                 <p class="error" aria-live="polite"></p>
               </div>
 
               <div class="field">
-                <label for="primarySector">What is your organisation's primary sector? <span class="required">*</span></label>
+                <label for="primarySector">
+                  What is your organisation's primary sector?
+                  <span class="required">*</span>
+                </label>
+
                 <select id="primarySector" name="primarySector" required>
                   <option value="">Select an option</option>
                   <option>Education</option>
@@ -325,88 +639,232 @@
                   <option>Governance</option>
                   <option>Other</option>
                 </select>
+
                 <p class="help">Select the closest matching sector.</p>
                 <p class="error" aria-live="polite"></p>
               </div>
             </div>
           </section>
 
-          <section class="form-section" data-section="1" aria-labelledby="section2Title" hidden>
+          <section
+            class="form-section"
+            data-section="1"
+            aria-labelledby="section2Title"
+            hidden
+          >
             <div class="section-head">
               <p>Section 2</p>
               <h2 id="section2Title">Data Use and Challenges</h2>
-              <p class="required-note">Fields marked <span class="required">*</span> are required.</p>
+              <p class="required-note">
+                Fields marked <span class="required">*</span> are required.
+              </p>
             </div>
+
             <div class="fields">
               <div class="field" data-radio="dashboardUse">
                 <fieldset>
-                  <legend>Does your organisation currently use dashboards or data reports? <span class="required">*</span></legend>
+                  <legend>
+                    Does your organisation currently use dashboards or data reports?
+                    <span class="required">*</span>
+                  </legend>
+
                   <div class="options two">
-                    <label class="option"><input type="radio" name="dashboardUse" value="Yes" required><span>Yes</span></label>
-                    <label class="option"><input type="radio" name="dashboardUse" value="No" required><span>No</span></label>
+                    <label class="option">
+                      <input
+                        type="radio"
+                        name="dashboardUse"
+                        value="Yes"
+                        required
+                      >
+                      <span>Yes</span>
+                    </label>
+
+                    <label class="option">
+                      <input
+                        type="radio"
+                        name="dashboardUse"
+                        value="No"
+                        required
+                      >
+                      <span>No</span>
+                    </label>
                   </div>
                 </fieldset>
+
                 <p class="error" aria-live="polite"></p>
               </div>
 
               <div class="field" data-radio="dataFrequency">
                 <fieldset>
-                  <legend>How regularly does your organisation use data to make decisions? <span class="required">*</span></legend>
+                  <legend>
+                    How regularly does your organisation use data to make decisions?
+                    <span class="required">*</span>
+                  </legend>
+
                   <div class="options five">
-                    <label class="option"><input type="radio" name="dataFrequency" value="Rarely" required><span>Rarely</span></label>
-                    <label class="option"><input type="radio" name="dataFrequency" value="A few times a year" required><span>A few times a year</span></label>
-                    <label class="option"><input type="radio" name="dataFrequency" value="Monthly" required><span>Monthly</span></label>
-                    <label class="option"><input type="radio" name="dataFrequency" value="Weekly" required><span>Weekly</span></label>
-                    <label class="option"><input type="radio" name="dataFrequency" value="Daily" required><span>Daily</span></label>
+                    <label class="option">
+                      <input
+                        type="radio"
+                        name="dataFrequency"
+                        value="Rarely"
+                        required
+                      >
+                      <span>Rarely</span>
+                    </label>
+
+                    <label class="option">
+                      <input
+                        type="radio"
+                        name="dataFrequency"
+                        value="A few times a year"
+                        required
+                      >
+                      <span>A few times a year</span>
+                    </label>
+
+                    <label class="option">
+                      <input
+                        type="radio"
+                        name="dataFrequency"
+                        value="Monthly"
+                        required
+                      >
+                      <span>Monthly</span>
+                    </label>
+
+                    <label class="option">
+                      <input
+                        type="radio"
+                        name="dataFrequency"
+                        value="Weekly"
+                        required
+                      >
+                      <span>Weekly</span>
+                    </label>
+
+                    <label class="option">
+                      <input
+                        type="radio"
+                        name="dataFrequency"
+                        value="Daily"
+                        required
+                      >
+                      <span>Daily</span>
+                    </label>
                   </div>
                 </fieldset>
+
                 <p class="error" aria-live="polite"></p>
               </div>
 
               <div class="field">
-                <label for="dataChallenge">What is the biggest challenge your team faces while using data? <span class="required">*</span></label>
-                <textarea id="dataChallenge" name="dataChallenge" required></textarea>
+                <label for="dataChallenge">
+                  What is the biggest challenge your team faces while using data?
+                  <span class="required">*</span>
+                </label>
+
+                <textarea
+                  id="dataChallenge"
+                  name="dataChallenge"
+                  required
+                ></textarea>
+
                 <p class="help">Share one or two key challenges.</p>
                 <p class="error" aria-live="polite"></p>
               </div>
 
               <div class="field">
-                <label for="learningPriorities">What are the top two things your organisation wants to learn from this program? <span class="required">*</span></label>
-                <textarea id="learningPriorities" name="learningPriorities" required></textarea>
+                <label for="learningPriorities">
+                  What are the top two things your organisation wants to learn from this program?
+                  <span class="required">*</span>
+                </label>
+
+                <textarea
+                  id="learningPriorities"
+                  name="learningPriorities"
+                  required
+                ></textarea>
+
                 <p class="help">Mention up to two learning priorities.</p>
                 <p class="error" aria-live="polite"></p>
               </div>
             </div>
           </section>
 
-          <section class="form-section" data-section="2" aria-labelledby="section3Title" hidden>
+          <section
+            class="form-section"
+            data-section="2"
+            aria-labelledby="section3Title"
+            hidden
+          >
             <div class="section-head">
               <p>Section 3</p>
               <h2 id="section3Title">Applicant Details</h2>
-              <p class="required-note">Fields marked <span class="required">*</span> are required.</p>
+              <p class="required-note">
+                Fields marked <span class="required">*</span> are required.
+              </p>
             </div>
+
             <div class="fields">
               <div class="field">
-                <label for="applicantName">Applicant name <span class="required">*</span></label>
-                <input id="applicantName" name="applicantName" type="text" autocomplete="name" required>
+                <label for="applicantName">
+                  Applicant name
+                  <span class="required">*</span>
+                </label>
+
+                <input
+                  id="applicantName"
+                  name="applicantName"
+                  type="text"
+                  autocomplete="name"
+                  required
+                >
+
                 <p class="error" aria-live="polite"></p>
               </div>
 
               <div class="field">
-                <label for="emailAddress">Email address <span class="required">*</span></label>
-                <input id="emailAddress" name="emailAddress" type="email" inputmode="email" autocomplete="email" required>
+                <label for="emailAddress">
+                  Email address
+                  <span class="required">*</span>
+                </label>
+
+                <input
+                  id="emailAddress"
+                  name="emailAddress"
+                  type="email"
+                  inputmode="email"
+                  autocomplete="email"
+                  required
+                >
+
                 <p class="help">Enter an active work email address.</p>
                 <p class="error" aria-live="polite"></p>
               </div>
 
               <div class="field">
-                <label for="roleDesignation">Role or designation <span class="required">*</span></label>
-                <input id="roleDesignation" name="roleDesignation" type="text" autocomplete="organization-title" required>
+                <label for="roleDesignation">
+                  Role or designation
+                  <span class="required">*</span>
+                </label>
+
+                <input
+                  id="roleDesignation"
+                  name="roleDesignation"
+                  type="text"
+                  autocomplete="organization-title"
+                  required
+                >
+
                 <p class="error" aria-live="polite"></p>
               </div>
 
               <div class="field">
-                <label for="teamFunction">Which team or function do you work in? <span class="required">*</span></label>
+                <label for="teamFunction">
+                  Which team or function do you work in?
+                  <span class="required">*</span>
+                </label>
+
                 <select id="teamFunction" name="teamFunction" required>
                   <option value="">Select an option</option>
                   <option>Program Design</option>
@@ -416,27 +874,80 @@
                   <option>Leadership</option>
                   <option>Other</option>
                 </select>
+
                 <p class="error" aria-live="polite"></p>
               </div>
             </div>
           </section>
 
-          <p class="form-alert" id="formAlert" role="alert">Please complete all required fields before submitting the application.</p>
+          <p class="form-alert" id="formAlert" role="alert">
+            Please complete all required fields before submitting the application.
+          </p>
+
+          <p
+            class="saving-status"
+            id="savingStatus"
+            role="status"
+            aria-live="polite"
+          >
+            Saving… Please keep this page open.
+          </p>
 
           <!-- Navigation -->
           <div class="nav">
-            <button class="btn secondary" id="backButton" type="button" disabled>Back</button>
-            <button class="btn primary" id="nextButton" type="button">Next</button>
-            <button class="btn primary" id="submitButton" type="submit" hidden>Submit</button>
+            <button
+              class="btn secondary"
+              id="backButton"
+              type="button"
+              disabled
+            >
+              Back
+            </button>
+
+            <button
+              class="btn primary"
+              id="nextButton"
+              type="button"
+            >
+              Next
+            </button>
+
+            <button
+              class="btn primary"
+              id="submitButton"
+              type="submit"
+              hidden
+            >
+              Submit
+            </button>
           </div>
         </form>
       </div>
 
       <!-- Confirmation screen -->
-      <div class="confirmation" id="confirmation" role="status" aria-live="polite" tabindex="-1">
+      <div
+        class="confirmation"
+        id="confirmation"
+        role="status"
+        aria-live="polite"
+        tabindex="-1"
+      >
         <div class="check" aria-hidden="true">✓</div>
-        <h2>Application completed for demonstration purposes.</h2>
-        <p>This is a frontend prototype. Your responses have not been stored.</p>
+        <h2>Application submitted successfully.</h2>
+        <p>Your response has been recorded.</p>
+
+        <p class="submission-id">
+          Submission ID:
+          <strong id="confirmedSubmissionId"></strong>
+        </p>
+
+        <button
+          class="btn primary"
+          id="startNewButton"
+          type="button"
+        >
+          Start a New Application
+        </button>
       </div>
     </section>
   </main>
@@ -444,6 +955,9 @@
   <script>
     (() => {
       "use strict";
+
+      /* Backend URL */
+      const SHEET_URL = "https://script.google.com/macros/s/AKfycbxKoaQYp9g82FNuxNfv226cBZvjzp3R9nxgLIdR7Vhkw6Xyp1wIXQFXrCodV5T5XaI/exec";
 
       const bannerDataUrl = [
         "data:image/webp;base64,UklGRugRAABXRUJQVlA4INwRAAAQbgCdASpYAqIAPqlOok0mJCOiJBD7aMAVCWdu57AOE8ctnOpW9UEb29PmA87PTa95nyBjyh/m/733Yf67+4ejvX6l0HKfyf78RI/LXUC/Gv6H/sd6zAB9Z/1/8bvUvyAuCLoAfp/0S8+/1r7DHTGKtxAJzi4gE5xD973QG44Hd4OuIBOcXEAnOLiATnFxAJzi4gE5nUXkzZxcQCc4uIBOcXD9INsDi3yeLwiYJ1wl9SNn3NZ/YKnA8oVoJ2lfEWQJR7KmH9lrhVKsY5LksWZ9I0XsopeRPaYkCrXXCYCm6fgWDR4hdWaFYSf/9cMzdscNXbQ85zdZJyJD7rrE8DmMMkCGPR/gvLMA9bDgd0zczqC8TSWSDoE6Lefb3WBKp3M6yIFh/ye328vI0y2OpqwGw1A/iI4sFI5U8G9IegvOwgMNu94qm+pLytLfFcfH0C2Xp2NrFDjhw0ROaJX7Cap2VNYQc58JcvXNfcRMu/hPTup+g/xvZo9UdUEr03hZv7Ha9LpVjI6KlcSy3Sw8M2ZEw0dzad6Oi35YrMkGUITowKjVVshOSiIrxWg0H8S/skgNiTj7Y6NApeiTyDDekZ0L9MKjh1mvd+HuxsPvyoXX0b+ATcOBm9uYDNQzY+My953OjzPhmUjvzU5dBT2kKhBOZ3urC6OSnWRAxtYNvn/Z2MqIzYSQ20TfkO228Vg6NrQB4/v/lZhqoj8a7dhw0UCndWqrTxiWQTBVO+RL9AufHLC8A30Nt4XJp9jOkK/dGXU0OdtWhcGVg6XhiUDiPP4oRZbzIQyHmqGGdxrxTWHcCNkGL88H3+P/qCHJ5BQTlTrve+pXsMCIq9q7tGnZkNokh0YD3GHUicYLQRHRatid",
@@ -454,22 +968,57 @@
         "JWH2Sbsx1732wpaUAbBb/SXzR7YP7z3ZSgPRLESPTdaXwq/sN9gyD8EknoMTarGi8BY1oeApHGpRDPPaZ7948eqa7NkrblLN4f4jEV28yMAgRkAY3T2jlxyxjTlr9PTzQ+mXD/EZBhUrpCNlowXpuupjhWpPpfo9edk+5HDIxMBgNr88BsJxCaQ+Ir4k/ltvgSeH47FeVr8kcjzDPEXl02VRcWnTRZBB/TdEtIZ7j+paaHZrSwwoyiPS0AcFqNVwab9aF3RdDB+ZuGlRiQfxOaq+6QupI7h1Rd0pWWCPsxlAbOKm7+/rxjv5GnnM5RGl+F7FX6+JpTkSs/qsyrvTmPu6W1X4mKBBcGcjQ02kVi3QWIvBEufybwwXXRUpqyF8ONwDx8bcqS2fyo9aIx/CsrhQ2zaKuvEl4XI5erd03tDWoLhtDiL2lTPEja3+oe25JBgXgRnGNHanmzpwwS2Vlp+gukTwS+VPCIJO0xDaM/U+SkAF1yjRtqIMg/1PC5Hdah1KDzj0sBh5yQivTBRx1hpxIIsdwgQrzbC5B+Mcosus5vXXytWKP6V67tp23PzbDeTNCa5IGqcvwBcUpGvw6J5SJDXnJ7/QeIva6WPASZzrrRCsVGsvfvsqYPeaTjIs7X4LSqGEYqm65VGj9SmbeTRLLtNWJqVawELScSLD/i2ttCvIFxhT3lldRUfO6/0SBl9BVKS2M8jt3Us0DvjJKfpZB+o0rHUWHKt/QkKVOOQa1U5bRjDQNDM/AQnPgA7pgnjIDvy6rbd/80z9u5EZlRZHBNyOlILzcm0IG2l8OQYm1YI4rrH1SupEOs1Aq2qlSUNt4jMckxGg5YeiUHb6x6grXPaTZuQKuW8Bf9IvNbB6dB3Sf6rjw+t0lUL/DMurGwMH",
         "QX0BDQJjcQpPg3+NwA65XwljKAaOgU0KwYbRcyI8bfQkNosyuLH/aKJFwYLtjQZge02+xwJJGDOuGVa9Ch5embavEISzLM4J8sy9wf/wMBO7NKOCzaIIL4ELtEf41TZw6y/B2/ziwBhgUuD4x/Yt3q2+lJONtqunhQ2zq8qJHSCeFQZB2LqFMHV1oiB+pljMf7g4XXGbVXbBhNM/JAITBGH5YWIcQFr7dtxeA7jIdA4I6sn8dZTb/tpRjweWpQr8GI2LzGzib6bgQZBfuFy3Cmr2QDz3mX/dKPPRTRJjDVuwdk20/r+M0FNUv5EEoiqBCQ8N1fX8KwLF0LcU8II/UeXWFUuW+3LwWQ66rmyv4OP1e39qfCX7SQ6XgpKJ8q4o5Wbydq2DeSaEz0RngpMmA8QdDQDZRIzBeBxrmBFqGdMyq4skbkJ5YjpB78xwLaJ7cxKidC7nvz2qQbKq//vprBHIbd72MF5a6bM++yCrnYFTOJPSXf/WNdzxTLZvRdG13ZhrtepSYts7aWAE/7kBNZhbHADy0BfjY9XgumRTZDVM04Ec+adB3BLFQME7WRpvtJTcnOnxb1UEUFO5lW1/6uvs/3qTI31FgABZFWVgsicc4qgaAl1qD5LBP9EwSIn6zCp4ZVTwqly7LHH8mofoiXON4EBp9Lp6Qid4zB8HmYH8FUPXSxhpfpPDzvUuNVWh9OgWDlXd9HwJywAAAAA="
       ].join("");
+
       document.getElementById("goalkeepBanner").src = bannerDataUrl;
 
       const form = document.getElementById("applicationForm");
+      const formExperience = document.getElementById("formExperience");
+      const confirmation = document.getElementById("confirmation");
+      const confirmedSubmissionId = document.getElementById("confirmedSubmissionId");
+      const startNewButton = document.getElementById("startNewButton");
       const sections = [...document.querySelectorAll(".form-section")];
       const steps = [...document.querySelectorAll("[data-step]")];
-      const names = ["Organisation Details", "Data Use and Challenges", "Applicant Details"];
+      const names = [
+        "Organisation Details",
+        "Data Use and Challenges",
+        "Applicant Details"
+      ];
+
       const back = document.getElementById("backButton");
       const next = document.getElementById("nextButton");
       const submit = document.getElementById("submitButton");
       const alertBox = document.getElementById("formAlert");
+      const savingStatus = document.getElementById("savingStatus");
+
+      const defaultAlertMessage =
+        "Please complete all required fields before submitting the application.";
+
+      const saveErrorMessage =
+        "We could not save your application. Please check your connection and try again.";
+
       let current = 0;
+      let isSaving = false;
+      let activeSubmissionId = null;
 
       const messageFor = (control) => {
-        if (control.validity.valueMissing) return "This question is required.";
-        if (control.type === "email" && control.validity.typeMismatch) return "Enter a valid email address.";
-        if (control.type === "url" && control.validity.typeMismatch) return "Enter a complete website link, including http:// or https://.";
+        if (control.validity.valueMissing) {
+          return "This question is required.";
+        }
+
+        if (
+          control.type === "email" &&
+          control.validity.typeMismatch
+        ) {
+          return "Enter a valid email address.";
+        }
+
+        if (
+          control.type === "url" &&
+          control.validity.typeMismatch
+        ) {
+          return "Enter a complete website link, including http:// or https://.";
+        }
+
         return "Check this response and try again.";
       };
 
@@ -482,13 +1031,18 @@
       const validateSection = (index, focusFirst = true) => {
         const section = sections[index];
         const fields = [...section.querySelectorAll(".field")];
+
         let valid = true;
         let firstInvalid = null;
 
         fields.forEach((field) => {
           const radioName = field.dataset.radio;
+
           if (radioName) {
-            const checked = field.querySelector(`input[name="${radioName}"]:checked`);
+            const checked = field.querySelector(
+              `input[name="${radioName}"]:checked`
+            );
+
             if (!checked) {
               valid = false;
               setError(field, "This question is required.");
@@ -496,10 +1050,14 @@
             } else {
               setError(field);
             }
+
             return;
           }
 
-          const control = field.querySelector("input, select, textarea");
+          const control = field.querySelector(
+            "input, select, textarea"
+          );
+
           if (!control.checkValidity()) {
             valid = false;
             setError(field, messageFor(control));
@@ -513,77 +1071,450 @@
 
         if (!valid && firstInvalid && focusFirst) {
           firstInvalid.focus();
-          firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+
+          firstInvalid.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
         }
+
         return valid;
       };
 
       const showSection = (index, focusHeading = true) => {
         current = index;
-        sections.forEach((section, i) => section.hidden = i !== current);
-        steps.forEach((step, i) => {
-          step.classList.toggle("current", i === current);
-          step.classList.toggle("done", i < current);
-          i === current ? step.setAttribute("aria-current", "step") : step.removeAttribute("aria-current");
+
+        sections.forEach((section, sectionIndex) => {
+          section.hidden = sectionIndex !== current;
         });
-        document.getElementById("currentName").textContent = names[current];
-        document.getElementById("currentCount").textContent = `Section ${current + 1} of ${sections.length}`;
-        back.disabled = current === 0;
+
+        steps.forEach((step, stepIndex) => {
+          step.classList.toggle(
+            "current",
+            stepIndex === current
+          );
+
+          step.classList.toggle(
+            "done",
+            stepIndex < current
+          );
+
+          if (stepIndex === current) {
+            step.setAttribute("aria-current", "step");
+          } else {
+            step.removeAttribute("aria-current");
+          }
+        });
+
+        document.getElementById("currentName").textContent =
+          names[current];
+
+        document.getElementById("currentCount").textContent =
+          `Section ${current + 1} of ${sections.length}`;
+
+        back.disabled = isSaving || current === 0;
+        next.disabled = isSaving;
         next.hidden = current === sections.length - 1;
         submit.hidden = current !== sections.length - 1;
         alertBox.classList.remove("show");
 
         if (focusHeading) {
           const heading = sections[current].querySelector("h2");
+
           heading.tabIndex = -1;
           heading.focus({ preventScroll: true });
-          heading.scrollIntoView({ behavior: "smooth", block: "start" });
+
+          heading.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
         }
       };
 
+      /* Navigation */
       next.addEventListener("click", () => {
-        if (validateSection(current)) showSection(current + 1);
+        if (
+          !isSaving &&
+          validateSection(current)
+        ) {
+          showSection(current + 1);
+        }
       });
 
       back.addEventListener("click", () => {
-        if (current > 0) showSection(current - 1);
+        if (!isSaving && current > 0) {
+          showSection(current - 1);
+        }
       });
 
       form.addEventListener("input", (event) => {
         const field = event.target.closest(".field");
-        if (!field) return;
+
+        if (!field) {
+          return;
+        }
 
         if (field.dataset.radio) {
-          if (field.querySelector(`input[name="${field.dataset.radio}"]:checked`)) setError(field);
+          const selected = field.querySelector(
+            `input[name="${field.dataset.radio}"]:checked`
+          );
+
+          if (selected) {
+            setError(field);
+          }
         } else if (event.target.checkValidity()) {
           setError(field);
           event.target.removeAttribute("aria-invalid");
         }
+
         alertBox.classList.remove("show");
       });
 
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        let firstInvalid = -1;
-
-        sections.forEach((_, index) => {
-          if (!validateSection(index, false) && firstInvalid === -1) firstInvalid = index;
-        });
-
-        if (firstInvalid !== -1) {
-          showSection(firstInvalid, false);
-          alertBox.classList.add("show");
-          validateSection(firstInvalid);
-          return;
+      /* Submission ID generation */
+      const generateSubmissionId = () => {
+        if (
+          window.crypto &&
+          typeof window.crypto.randomUUID === "function"
+        ) {
+          return `dlp-${window.crypto.randomUUID()}`;
         }
 
-        /* No data is sent or stored. */
-        document.getElementById("formExperience").hidden = true;
-        const confirmation = document.getElementById("confirmation");
+        const randomPart = Math.random()
+          .toString(36)
+          .slice(2, 12);
+
+        return `dlp-${Date.now()}-${randomPart}`;
+      };
+
+      /* Form data collection */
+      const collectPayload = (submissionId) => ({
+        client_submission_id: submissionId,
+        orgName: document
+          .getElementById("organisationName")
+          .value
+          .trim(),
+        orgWebsite: document
+          .getElementById("organisationWebsite")
+          .value
+          .trim(),
+        orgSector: document
+          .getElementById("primarySector")
+          .value,
+        usesDashboards:
+          form.querySelector(
+            'input[name="dashboardUse"]:checked'
+          )?.value || "",
+        dataFrequency:
+          form.querySelector(
+            'input[name="dataFrequency"]:checked'
+          )?.value || "",
+        biggestChallenge: document
+          .getElementById("dataChallenge")
+          .value
+          .trim(),
+        learningPriorities: document
+          .getElementById("learningPriorities")
+          .value
+          .trim(),
+        applicantName: document
+          .getElementById("applicantName")
+          .value
+          .trim(),
+        applicantEmail: document
+          .getElementById("emailAddress")
+          .value
+          .trim(),
+        applicantRole: document
+          .getElementById("roleDesignation")
+          .value
+          .trim(),
+        applicantTeam: document
+          .getElementById("teamFunction")
+          .value
+      });
+
+      const delay = (milliseconds) => new Promise((resolve) => {
+        window.setTimeout(resolve, milliseconds);
+      });
+
+      /* JSONP verification */
+      const checkSubmissionWithJsonp = (submissionId) =>
+        new Promise((resolve, reject) => {
+          const callbackName =
+            `dlpJsonp_${Date.now()}_${Math.random()
+              .toString(36)
+              .slice(2)}`;
+
+          const script = document.createElement("script");
+          let timeoutId;
+
+          const cleanUp = () => {
+            window.clearTimeout(timeoutId);
+            delete window[callbackName];
+            script.remove();
+          };
+
+          window[callbackName] = (result) => {
+            cleanUp();
+            resolve(result);
+          };
+
+          script.onerror = () => {
+            cleanUp();
+
+            reject(
+              new Error(
+                "Submission verification request failed."
+              )
+            );
+          };
+
+          const verificationUrl = new URL(SHEET_URL);
+
+          verificationUrl.searchParams.set(
+            "action",
+            "checkSubmission"
+          );
+
+          verificationUrl.searchParams.set(
+            "submission_id",
+            submissionId
+          );
+
+          verificationUrl.searchParams.set(
+            "callback",
+            callbackName
+          );
+
+          verificationUrl.searchParams.set(
+            "_",
+            Date.now().toString()
+          );
+
+          script.src = verificationUrl.toString();
+
+          timeoutId = window.setTimeout(() => {
+            cleanUp();
+
+            reject(
+              new Error(
+                "Submission verification timed out."
+              )
+            );
+          }, 5000);
+
+          document.head.appendChild(script);
+        });
+
+      const waitForSubmissionConfirmation = async (
+        submissionId
+      ) => {
+        const maximumChecks = 20;
+
+        for (
+          let attempt = 1;
+          attempt <= maximumChecks;
+          attempt += 1
+        ) {
+          try {
+            const result =
+              await checkSubmissionWithJsonp(
+                submissionId
+              );
+
+            if (
+              result &&
+              result.status === "success" &&
+              result.saved === true &&
+              result.submission_id === submissionId
+            ) {
+              return result;
+            }
+          } catch (verificationError) {
+            console.warn(verificationError);
+          }
+
+          if (attempt < maximumChecks) {
+            await delay(1000);
+          }
+        }
+
+        throw new Error(
+          "The saved submission could not be confirmed."
+        );
+      };
+
+      const setSavingState = (saving) => {
+        isSaving = saving;
+        submit.disabled = saving;
+        back.disabled = saving || current === 0;
+        next.disabled = saving;
+        submit.textContent = saving
+          ? "Saving…"
+          : "Submit";
+
+        savingStatus.classList.toggle(
+          "show",
+          saving
+        );
+      };
+
+      /* POST request */
+      const postApplication = async (payload) => {
+        await fetch(SHEET_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify(payload),
+          cache: "no-store",
+          credentials: "omit",
+          referrerPolicy: "no-referrer"
+        });
+      };
+
+      /* Success handling */
+      const showSuccess = (submissionId) => {
+        formExperience.hidden = true;
+        confirmedSubmissionId.textContent =
+          submissionId;
+
         confirmation.classList.add("show");
         confirmation.focus();
-        confirmation.scrollIntoView({ behavior: "smooth", block: "center" });
-      });
+
+        confirmation.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      };
+
+      /* Error handling */
+      const showSaveError = () => {
+        setSavingState(false);
+
+        alertBox.textContent =
+          saveErrorMessage;
+
+        alertBox.classList.add("show");
+
+        alertBox.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      };
+
+      form.addEventListener(
+        "submit",
+        async (event) => {
+          event.preventDefault();
+
+          if (isSaving) {
+            return;
+          }
+
+          let firstInvalid = -1;
+
+          sections.forEach((section, index) => {
+            const valid = validateSection(
+              index,
+              false
+            );
+
+            if (
+              !valid &&
+              firstInvalid === -1
+            ) {
+              firstInvalid = index;
+            }
+          });
+
+          if (firstInvalid !== -1) {
+            showSection(firstInvalid, false);
+
+            alertBox.textContent =
+              defaultAlertMessage;
+
+            alertBox.classList.add("show");
+            validateSection(firstInvalid);
+            return;
+          }
+
+          if (!activeSubmissionId) {
+            activeSubmissionId =
+              generateSubmissionId();
+          }
+
+          const payload =
+            collectPayload(
+              activeSubmissionId
+            );
+
+          alertBox.classList.remove("show");
+          setSavingState(true);
+
+          try {
+            await postApplication(payload);
+
+            await waitForSubmissionConfirmation(
+              activeSubmissionId
+            );
+
+            setSavingState(false);
+            showSuccess(activeSubmissionId);
+          } catch (error) {
+            console.error(error);
+            showSaveError();
+          }
+        }
+      );
+
+      /* Form reset */
+      startNewButton.addEventListener(
+        "click",
+        () => {
+          form.reset();
+
+          activeSubmissionId = null;
+          isSaving = false;
+          current = 0;
+
+          document
+            .querySelectorAll(".field")
+            .forEach((field) => {
+              setError(field);
+            });
+
+          form
+            .querySelectorAll(
+              '[aria-invalid="true"]'
+            )
+            .forEach((control) => {
+              control.removeAttribute(
+                "aria-invalid"
+              );
+            });
+
+          alertBox.textContent =
+            defaultAlertMessage;
+
+          alertBox.classList.remove("show");
+          savingStatus.classList.remove("show");
+          confirmedSubmissionId.textContent = "";
+          confirmation.classList.remove("show");
+          formExperience.hidden = false;
+          submit.disabled = false;
+          submit.textContent = "Submit";
+          next.disabled = false;
+
+          showSection(0, false);
+
+          formExperience.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      );
 
       showSection(0, false);
     })();
